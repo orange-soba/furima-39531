@@ -32,8 +32,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include SignInBasic
-  # config.include Devise::Test::IntegrationHelpers, type: :system
-  # config.include Warden::Test::Helpers
+  config.include LogIn
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
