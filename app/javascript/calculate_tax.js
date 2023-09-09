@@ -3,6 +3,11 @@ function calculate_tax(){
   const priceInput = document.getElementById("item-price")
   priceInput.addEventListener('keyup', () => {
     // console.log(priceInput.value);
+    const price = Number(priceInput.value);
+    const tax = Math.floor(price * 0.1);
+    // console.log(tax);
+    const profit = price - tax;
+    // console.log(profit);
   });
 };
 
