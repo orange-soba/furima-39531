@@ -1,13 +1,12 @@
 function calculate_tax(){
-  // console.log('発火');
-  const priceInput = document.getElementById("item-price")
+  const priceInput = document.getElementById("item-price");
+  const addTaxPrice = document.getElementById("add-tax-price");
+  const profit = document.getElementById("profit");
   priceInput.addEventListener('keyup', () => {
-    // console.log(priceInput.value);
-    const price = Number(priceInput.value);
+    const price = priceInput.value;
     const tax = Math.floor(price * 0.1);
-    // console.log(tax);
-    const profit = price - tax;
-    // console.log(profit);
+    addTaxPrice.innerHTML = tax.toLocaleString();
+    profit.innerHTML = (price - tax).toLocaleString();
   });
 };
 
