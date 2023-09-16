@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index
 
   def index
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_address = OrderAddress.new
   end
 
@@ -11,6 +12,7 @@ class OrdersController < ApplicationController
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_order
+      binding.pry
       @order_address.save
       redirect_to root_path
     else
