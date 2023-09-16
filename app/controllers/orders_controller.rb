@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
-  before_action :set_item
+  before_action :set_item_gon
   before_action :authenticate_user!
   before_action :move_to_index
 
   def index
-    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_address = OrderAddress.new
   end
 
@@ -36,8 +35,9 @@ class OrdersController < ApplicationController
           .merge(user_id: current_user.id, item_id: item_id, token: token)
   end
 
-  def set_item
+  def set_item_gon
     @item = Item.find(params[:item_id])
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
   end
 
   def pay_order
