@@ -11,4 +11,7 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'は、全角（カタカナ）での入力が必須です' }
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'は、全角（カタカナ）での入力が必須です' }
   validates :birthday, presence: true
+
+  has_many :items
+  has_many :orders
 end

@@ -11,3 +11,4 @@ function calculate_tax(){
 };
 
 window.addEventListener('turbo:load', calculate_tax);
+window.addEventListener('turbo:render', calculate_tax);
