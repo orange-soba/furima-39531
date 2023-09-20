@@ -5,6 +5,10 @@ function preview() {
   const previewList = document.getElementById('previews');
 
   const fileField = document.querySelector('input[type="file"][name="item[image]"]');
+
+  fileField.addEventListener('change', function(e) {
+    
+  });
 };
 
 window.addEventListener('turbo:load', preview);
