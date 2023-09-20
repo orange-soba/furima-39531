@@ -57,7 +57,7 @@ test:
 
 production:
   <<: *default
-  adapter: mysql
+  adapter: mysql2
   database: furima-39531_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
