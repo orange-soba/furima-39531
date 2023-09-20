@@ -18,7 +18,11 @@ app/assets/stylesheets/items/new.css %>
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <div id="previews"></div>
+        <div id="previews">
+          <div class="item-img-content">
+            <%= image_tag @item.image ,class:"item-box-img-preview" %>
+          </div>
+        </div>
         <p>
           クリックしてファイルをアップロード
         </p>
