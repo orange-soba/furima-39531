@@ -79,6 +79,7 @@ end
 
 group :production do
   gem 'unicorn', '6.1.0'
+  # gem 'pg' # renderを利用する際のPostgreSQL(データベース)を使用するためのGem
 end
 
 gem 'pry-rails'
