@@ -9,6 +9,16 @@ function preview() {
   fileField.addEventListener('change', function(e) {
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
+
+    const previewWrapper = document.createElement('div');
+    previewWrapper.setAttribute('class', 'item-img-content');
+
+    const previewImage = document.createElement('img');
+    previewImage.setAttribute('class', 'item-box-img');
+    previewImage.setAttribute('src', blob);
+
+    previewWrapper.appendChild(previewImage);
+    previewList.appendChild(previewWrapper);
   });
 };
 
