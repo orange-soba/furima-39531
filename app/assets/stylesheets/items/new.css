@@ -89,6 +89,15 @@
   margin-bottom: 15px;
 }
 
+.item-box-img-preview {
+  height: 40vh;
+  width: 34.72vw;
+  min-height: 500px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
+
 /* /商品画像 */
 
 /* 商品名と商品説明 */
