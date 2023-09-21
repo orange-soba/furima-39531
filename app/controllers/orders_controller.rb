@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
   def item_exists_check
     return if Item.exists?(params[:item_id])
 
+    flash[:notice] = "IDが#{params[:id]}の商品は存在しません"
     redirect_to root_path
   end
 
