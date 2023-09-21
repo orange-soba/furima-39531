@@ -92,7 +92,7 @@
 .item-box-img-preview {
   height: 40vh;
   width: 35vw;
-  min-height: 500px;
+  min-height: 100px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
