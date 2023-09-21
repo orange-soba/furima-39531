@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :item_exists_check
   before_action :set_item_gon
   before_action :authenticate_user!
   before_action :move_to_index
@@ -19,6 +20,13 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def item_exists_check
+    return if Item.exists?(params[:item_id])
+
+    flash[:notice] = "IDが#{params[:id]}の商品は存在しません"
+    redirect_to root_path
+  end
 
   def move_to_index
     user_id = @item.user_id
