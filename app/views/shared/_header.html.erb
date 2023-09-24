@@ -13,7 +13,7 @@
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
-      <% if current_page?(root_path) %>
+      <% unless current_page?(controller: "items", action: "search") %>
         <li>検索ページは<%= link_to 'こちら', search_items_path, class: "search-link" %>から</li>
       <% end %>
     </ul>
