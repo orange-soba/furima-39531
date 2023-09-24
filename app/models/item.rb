@@ -22,4 +22,8 @@ class Item < ApplicationRecord
       return false
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
 end

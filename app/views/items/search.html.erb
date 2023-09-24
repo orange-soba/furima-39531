@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+<div class="search-header">
+  <div class="search-header__title">検索ページ</div>
+</div>
+<div class="search-contents">
+  <%= search_form_for @q, url: search_items_path, html: { id: "detailed-search-form" } do |f| %>
+    <div class="search-field">
+      <%= f.label :name_cont, '商品名' %><br>
+      <%= f.text_field :name_cont, placeholder: '商品名' %>
+    </div>
+    <%= f.submit '検索' %>
+  <% end %>
+  <ul class="search-result-items">
+    <% @items.each do |item| %>
+      <li class="list">
+        <div class="search-item">
+          <%= image_tag item.image , class: "search-item-image" %><br>
+          <%= item.name %><br>
+          <%= link_to '詳細', item_path(item.id) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
