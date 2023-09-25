@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_sign_in, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :item_exists_check, only: [:show, :edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
@@ -50,12 +50,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
-  def move_to_sign_in
-    return if user_signed_in?
-
-    redirect_to new_user_session_path
-  end
 
   def item_exists_check
     return if Item.exists?(params[:id])
