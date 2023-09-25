@@ -23,6 +23,10 @@ class Item < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["name"]
+    ["name", "category_id", "condition_id", "fee_id", "price"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["user"]
   end
 end

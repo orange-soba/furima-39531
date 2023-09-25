@@ -13,6 +13,8 @@
 }
 
 #detailed-search-form {
+  height: 530px;
+  width: 300px;
   margin: 0 10px;
   background-color: thistle;
   border: 1px solid;

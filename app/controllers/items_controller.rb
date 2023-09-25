@@ -41,6 +41,10 @@ class ItemsController < ApplicationController
   end
 
   def search
+    if params[:q]&.dig(:name)
+      names = params[:q][:name].squish.split(" ")
+      params[:q][:name_cont_any] = names
+    end
     @q = Item.ransack(params[:q])
     @items = @q.result
   end

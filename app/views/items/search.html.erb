@@ -5,8 +5,29 @@
 <div class="search-contents">
   <%= search_form_for @q, url: search_items_path, html: { id: "detailed-search-form" } do |f| %>
     <div class="search-field">
-      <%= f.label :name_cont, '商品名' %><br>
-      <%= f.text_field :name_cont, placeholder: '商品名' %>
+      <%= f.label :name, '商品名' %><br>
+      <%= f.text_field :name, value: params[:q]&.dig(:name), placeholder: '商品名' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :user_nickname_cont, '出品者名' %><br>
+      <%= f.text_field :user_nickname_cont, placeholder: "出品者名" %>
+    </div>
+    <div class="search-field">
+      <%= f.label :category_id_in, 'カテゴリー' %><br>
+      <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :condition_id_eq, '商品の状態' %><br>
+      <%= f.collection_select(:condition_id_eq, Condition.all, :id, :name, { include_blank: "---" }) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :fee_id_eq, '配送料の負担' %><br>
+      <%= f.collection_select(:fee_id_eq, Fee.all, :id, :name, { include_blank: "---" }) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :price_gteq, '価格' %><br>
+      <%= f.number_field :price_gteq %>円以上<br>
+      <%= f.number_field :price_lteq %>円以下
     </div>
     <%= f.submit '検索' %>
   <% end %>
