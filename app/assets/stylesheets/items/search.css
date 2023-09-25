@@ -1,0 +1,43 @@
+.search-header {
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.search-header__title {
+  font-size: x-large;
+}
+
+.search-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+#detailed-search-form {
+  height: 530px;
+  width: 300px;
+  margin: 0 10px;
+  background-color: thistle;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.search-field {
+  margin: 5px 0;
+}
+
+.search-result-items {
+  width: 100%;
+  margin: 0 10px;
+  display: flex;
+}
+
+.search-item {
+  width: 100px;
+  margin: 0 10px;
+}
+
+.search-item-image {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
