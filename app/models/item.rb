@@ -9,10 +9,9 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-  validates :image, presence: true
-  validates :name, :explanation, presence: true
-  validates :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_day_id, \
-            presence: true, numericality: { other_than: 0, message: "can't be blank" }
+  with_options presence: true do
+    validates :image, :name, :explanation, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_day_id
+  end
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
 
   def sold
