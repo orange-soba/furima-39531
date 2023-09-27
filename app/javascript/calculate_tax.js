@@ -1,5 +1,7 @@
 function calculate_tax(){
   const priceInput = document.getElementById("item-price");
+  if (!priceInput) return null;
+  
   const addTaxPrice = document.getElementById("add-tax-price");
   const profit = document.getElementById("profit");
   priceInput.addEventListener('keyup', () => {
