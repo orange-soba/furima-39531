@@ -14,14 +14,6 @@ class Item < ApplicationRecord
   end
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
 
-  def sold
-    if Order.find_by(item_id: self.id)
-      return true
-    else
-      return false
-    end
-  end
-
   def self.ransackable_attributes(auth_object = nil)
     ["name", "category_id", "condition_id", "fee_id", "price"]
   end
