@@ -1,0 +1,94 @@
+<%= render "shared/header" %>
+
+<%# ユーザーの詳細 %>
+<div class="user-show">
+  <div class="user-detail-box">
+    <div class="user-show__name">
+      <%= @user.nickname %>
+      <% if user_signed_in? && current_user.id = @user.id %>
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
+      <% end %>
+    </div>
+
+    <%# 自分の登録情報を見られるのは自分だけ %>
+    <% if user_signed_in? && current_user.id == @user.id %>
+      <%# 本人自体の情報 %>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-user">名前</th>
+            <td class="detail-value"><%= @user.last_name %>　<%= @user.first_name %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">フリガナ</th>
+            <td class="detail-value"><%= @user.last_name_kana %>　<%= @user.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">メールアドレス</th>
+            <td class="detail-value"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">誕生日</th>
+            <td class="detail-value"><%= @user.birthday %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <%# クレジットカード情報 %>
+      <div class="user-show__title">登録済みクレジットカード
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-user">カード番号</th>
+            <td class="detail-value"><%= "####-####-####-0123" %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">有効期限</th>
+            <td class="detail-value"><%= "12/24" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <%# 住所情報 %>
+      <div class="user-show__title" >登録済み住所等
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-user">郵便番号</th>
+            <td class="detail-value"><%= "123-4567" %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">住所</th>
+            <td class="detail-value"><%= "東京都新宿区青山１−１　柳ビル103" %></td>
+          </tr>
+          <tr>
+            <th class="detail-user">電話番号</th>
+            <td class="detail-value"><%= "12345678900" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+<%# /ユーザーの詳細 %>
+
+<%= render "shared/footer" %>
