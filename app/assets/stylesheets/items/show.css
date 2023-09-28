@@ -121,6 +121,11 @@
   margin-right: 5px;
 }
 
+.favorite-btn__link {
+  text-decoration: none;
+  color: black;
+}
+
 .report-btn {
   border-radius: 40px;
   width: 15vw;

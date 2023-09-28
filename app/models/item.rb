@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
   has_one_attached :image
+  has_many :favorites
 
   with_options presence: true do
     validates :image, :name, :explanation, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_day_id
@@ -20,5 +21,13 @@ class Item < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     ["user"]
+  end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+  def favorited_num
+    favorites.length
   end
 end

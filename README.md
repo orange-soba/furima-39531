@@ -65,3 +65,15 @@
 ### Association
 
 - belongs_to :order
+
+## favorite テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
+
+### Associations
+
+- belongs_to :user
+- belongs_to :item
