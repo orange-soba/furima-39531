@@ -1,0 +1,36 @@
+.user-show {
+  background-color: #f8f8f8;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.user-show__name {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.user-detail-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 700px;
+  padding: 5vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-user {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.user-show__title {
+  font-size: large;
+  font-weight: bold;
+}
