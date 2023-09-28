@@ -34,3 +34,17 @@
   font-size: large;
   font-weight: bold;
 }
+
+.edit-btn-area {
+  position: relative;
+}
+
+.hidden-text {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-weight: normal;
+  font-size: 12px;
+  background-color: #dedede;
+}

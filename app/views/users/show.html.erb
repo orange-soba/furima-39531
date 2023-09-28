@@ -6,9 +6,12 @@
     <div class="user-show__name">
       <%= @user.nickname %>
       <% if user_signed_in? && current_user.id = @user.id %>
-        <%= link_to "#" do %>
-          <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
-        <% end %>
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
       <% end %>
     </div>
 
@@ -38,9 +41,12 @@
 
       <%# クレジットカード情報 %>
       <div class="user-show__title">登録済みクレジットカード
-        <%= link_to "#" do %>
-          <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
-        <% end %>
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
       </div>
       <table class="detail-table">
         <tbody>
@@ -57,9 +63,12 @@
 
       <%# 住所情報 %>
       <div class="user-show__title" >登録済み住所等
-        <%= link_to "#" do %>
-          <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
-        <% end %>
+        <div class="edit-btn-area", style="display: inline;">
+          <%= link_to "#", class: "edit-btn" do %>
+            <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
+          <% end %>
+          <div class="hidden-text", style="display: none;">編集する</div>
+        </div>
       </div>
       <table class="detail-table">
         <tbody>
