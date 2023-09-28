@@ -11,7 +11,6 @@ class FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(item_id: params[:item_id], user_id: current_user.id)&.destroy
     respond_to do |format|
-      binding.pry
       format.js
     end
   end
