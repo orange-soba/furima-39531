@@ -26,4 +26,8 @@ class Item < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def favorited_num
+    favorites.length
+  end
 end
