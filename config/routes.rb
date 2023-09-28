@@ -8,5 +8,5 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :user, only: :show
+  resources :users, only: :show
 end
