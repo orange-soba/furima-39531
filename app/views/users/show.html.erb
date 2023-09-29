@@ -5,7 +5,7 @@
   <div class="user-detail-box">
     <div class="user-show__name">
       <%= @user.nickname %>
-      <% if user_signed_in? && current_user.id = @user.id %>
+      <% if user_signed_in? && current_user.id == @user.id %>
         <div class="edit-btn-area", style="display: inline;">
           <%= link_to "#", class: "edit-btn" do %>
             <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
@@ -90,5 +90,47 @@
   </div>
 </div>
 <%# /ユーザーの詳細 %>
+
+<%# 出品履歴 %>
+<div class="item-contents">
+  <h2 class="title">出品履歴</h2>
+
+  <ul class="item-lists">
+    <% if @items.exists? %>
+      <% @items.each_with_index do |item, index| %>
+        <%# 出品履歴が表示されるのは4つまで %>
+        <% break if index == 5 %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag item.image, class: "item-img" %>
+
+              <% if item.order %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
+
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= item.price %>円<br><%= item.fee.name %></span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'><%= item.favorited_num %></span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <h3 style="font-size: 30px;">出品履歴が存在しません</h3>
+    <% end %>
+  </ul>
+</div>
 
 <%= render "shared/footer" %>
