@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
   has_one_attached :image
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   with_options presence: true do
     validates :image, :name, :explanation, :category_id, :condition_id, :fee_id, :prefecture_id, :shipping_day_id
