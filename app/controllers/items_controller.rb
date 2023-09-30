@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
       params[:q][:name_cont_any] = names
     end
     @q = Item.ransack(params[:q])
-    @items = @q.result
+    @items = @q.result.order('created_at DESC')
   end
 
   private
