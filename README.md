@@ -36,6 +36,7 @@
 
 - belongs_to :user
 - has_one :order
+- has_one :room
 
 ## orders テーブル
 
@@ -77,3 +78,26 @@
 
 - belongs_to :user
 - belongs_to :item
+
+## rooms テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| extension | boolean    | null: false, default: false    |
+| item      | references | null: false, foreign_key: true |
+
+### Associations
+
+- belongs_to :item
+- has_many :messages
+
+## messages テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| room    | references | null: false, foreign_key: true |
+| message | text       | null: false                    |
+
+### Associations
+
+- belongs_to :room
