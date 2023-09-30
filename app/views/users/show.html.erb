@@ -6,7 +6,7 @@
     <div class="user-show__name">
       <%= @user.nickname %>
       <% if user_signed_in? && current_user.id == @user.id %>
-        <div class="edit-btn-area", style="display: inline;">
+        <div class="edit-btn-area">
           <%= link_to "#", class: "edit-btn" do %>
             <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
           <% end %>
@@ -41,7 +41,7 @@
 
       <%# クレジットカード情報 %>
       <div class="user-show__title">登録済みクレジットカード
-        <div class="edit-btn-area", style="display: inline;">
+        <div class="edit-btn-area">
           <%= link_to "#", class: "edit-btn" do %>
             <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
           <% end %>
@@ -63,7 +63,7 @@
 
       <%# 住所情報 %>
       <div class="user-show__title" >登録済み住所等
-        <div class="edit-btn-area", style="display: inline;">
+        <div class="edit-btn-area">
           <%= link_to "#", class: "edit-btn" do %>
             <%= image_tag "kkrn_icon_henshuu_6.png", width: "15", height: "15" %>
           <% end %>
@@ -87,13 +87,37 @@
         </tbody>
       </table>
     <% end %>
+
+    <%# 出品履歴のグラフを表示 %>
+    <div class="user-detail__graphs">
+      <h2 style="font-size: xx-large; font-weight: bold;">出品商品の傾向</h2>
+      <h2 style="font-size: x-large; font-weight: 500">総出品数：<%= @items.length %></h2>
+
+      <% if @graph[:frequency] %>
+        <div class="category-graph">
+          <h2 class="user-show__subtitle">出品頻度</h2>
+          <%= line_chart(@graph[:frequency], width: "500px", height: "300px") %>
+        </div>
+      <% end %>
+
+      <% if @graph[:category] %>
+        <div class="category-graph">
+          <h2 class="user-show__subtitle">出品カテゴリーの傾向</h2>
+          <%= pie_chart(@graph[:category], width: "500px", height: "300px") %>
+        </div>
+      <% end %>
+
+      <% if !@items.exists? %>
+        <h3 style="font-size: 25px;">出品履歴が存在しません</h3>
+      <% end %>
+    </div>
   </div>
 </div>
 <%# /ユーザーの詳細 %>
 
 <%# 出品履歴 %>
 <div class="item-contents">
-  <h2 class="title">出品履歴</h2>
+  <h2 class="title">過去に出品した商品</h2>
 
   <ul class="item-lists">
     <% if @items.exists? %>
@@ -128,7 +152,7 @@
         </li>
       <% end %>
     <% else %>
-      <h3 style="font-size: 30px;">出品履歴が存在しません</h3>
+      <h3 style="font-size: 25px;">出品履歴が存在しません</h3>
     <% end %>
   </ul>
 </div>

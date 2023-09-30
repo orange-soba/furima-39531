@@ -35,8 +35,28 @@
   font-weight: bold;
 }
 
+.user-show__subtitle {
+  width: 300px;
+  font-size: x-large;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.user-detail__graphs {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.category-graph {
+  margin-top: 50px;
+}
+
+/*  */
 .edit-btn-area {
   position: relative;
+  display: inline;
 }
 
 .hidden-text {
