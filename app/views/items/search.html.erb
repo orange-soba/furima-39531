@@ -35,7 +35,14 @@
     <% @items.each do |item| %>
       <li class="list">
         <div class="search-item">
-          <%= image_tag item.image , class: "search-item-image" %><br>
+          <div class="search-item-image-area">
+            <%= image_tag item.image , class: "search-item-image" %><br>
+            <% if item.order %>
+              <div class='search-sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
+          </div>
           <%= item.name %><br>
           <%= item.price %>円<br>
           <%= link_to '詳細', item_path(item.id) %>

@@ -36,8 +36,22 @@
   margin: 0 10px;
 }
 
+.search-item-image-area{
+  position: relative;
+}
+
 .search-item-image {
   height: 100px;
   width: 100px;
   object-fit: contain;
+}
+
+.search-sold-out {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  color: white;
+  transform: skewY(-10deg);
 }
