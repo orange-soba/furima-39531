@@ -16,6 +16,8 @@ class OrderAddress
   end
 
   def create_room
-    Room.create(item_id: item_id)
+    item = Item.find(item_id)
+    limit = (item.order.created_at. + 14.day).end_of_day
+    Room.create(item_id: item_id, limit: limit)
   end
 end

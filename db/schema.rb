@@ -86,7 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_01_070053) do
   end
 
   create_table "rooms", charset: "utf8", force: :cascade do |t|
-    t.boolean "extension", default: false, null: false
+    t.datetime "limit", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

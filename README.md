@@ -81,10 +81,10 @@
 
 ## rooms テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| extension | boolean    | null: false, default: false    |
-| item      | references | null: false, foreign_key: true |
+| Column | Type        | Options                        |
+| ------ | ----------- | ------------------------------ |
+| limit  | datetime    | null: false                    |
+| item   | references  | null: false, foreign_key: true |
 
 ### Associations
 
