@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items do
     resource :favorites, only: [:create, :destroy]
-    resources :rooms, only: [:index]
+    resources :rooms, only: [:index, :edit]
     resources :orders, only: [:index, :create]
     collection do
       get 'search'

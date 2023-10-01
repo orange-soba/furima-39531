@@ -9,6 +9,7 @@
     <%# 翌日ページ削除の注意 %>
     <div>
       <%= @item.room.limit %>
+      <%= link_to "更新", [:edit, @item, @room] %>
     </div>
     <%# /翌日ページ削除の注意 %>
 
@@ -54,7 +55,7 @@
 
     <%# メッセージ送信部分 %>
     <div class="communicate-message-input">
-      
+
     </div>
     <%# /メッセージ送信部分 %>
   </div>
