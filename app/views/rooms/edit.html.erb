@@ -1,1 +1,5 @@
-edit
+本当に更新しますか？
+<%= form_with model: @room, url: item_room_path(item_id: @item.id, id: @room.id), local: true do |f| %>
+  <%= f.hidden_field :limit, value: @room.limit+ 1.week %>
+  <%= f.submit "更新" %>
+<% end %>
