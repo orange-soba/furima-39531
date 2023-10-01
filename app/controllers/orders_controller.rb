@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     if @order_address.valid?
       pay_order
       @order_address.save
+      @order_address.create_room
       redirect_to root_path
     else
       render :index, status: :unprocessable_entity
