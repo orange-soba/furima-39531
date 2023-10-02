@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<div class="communicaton-contents">
+<div class="communication-contents">
   <div class="communication-main">
     <h1 class="communication-title">
       コミュニケーションページ
@@ -8,11 +8,13 @@
 
     <%# 翌日ページ削除の注意 %>
     <div class="communication-limit-alert">
-      <%= @room.limit %><br>
+      <p>こちらのページは以下の時間に破棄されます</p>
+      <%= @room.limit.strftime("%Y-%m-%d %H:%M:%S") %><br>
       <% if @room.limit.to_i == (@room.created_at + 3.week).end_of_day.to_i %>
         これ以上の延期はできません
       <% else %>
         <div class="communication-limit-extension">
+          <p>期間を延長したいときは下のボタンを押してください(延長は1週間のみです)</p>
           <%= form_with model: @room, url: item_room_path(item_id: @item.id, id: @room.id), local: true do |f| %>
             <%= f.hidden_field :limit, value: @room.limit+ 1.week %>
             <%= f.submit "更新" %>
