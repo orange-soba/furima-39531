@@ -55,21 +55,30 @@
     <%# /購入内容の表示 %>
 
     <%# コミュニケーション部分 %>
+    <h2 class="communications-title">コミュニケーション</h2>
     <div class="communications">
       <div class="message-content">
         <% @messages.each do |message| %>
-          <% if message.user.id == @item.user.id %>
-            <div class="communicate-buyer">S</div>
-          <% end %>
-          <div class="communicate-text">
-            <%= message.message %>
+          <div class="message-area">
+            <% if message.user_id == @item.user.id %>
+              <%# 出品者は「S」 %>
+              <div class="message-user">S</div>
+            <% else %>
+              <%# 購入者は「B」 %>
+              <div class="message-user">B</div>
+            <% end %>
+            <div class="message-text">
+              <%= message.message %>
+            </div>
           </div>
-          <% if message.user.id == @item.order.user.id %>
-            <div class="communicate-seller">B</div>
-          <% end %>
         <% end %>
       </div>
       <%# メッセージ送信部分 %>
+      <% if @message.errors.any? %>
+        <div class="message-alert">
+          <%= @message.errors.full_messages[0] %>
+        </div>
+      <% end %>
       <div class="communicate-message-input">
         <%= form_with model: [@room, @message], url: item_room_messages_path(item_id: @item.id, room_id: @room.id), local:true do |f| %>
           <%= f.text_field :message, placeholder: "message", class: "communication-message-text" %>

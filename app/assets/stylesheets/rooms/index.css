@@ -16,7 +16,7 @@
   text-align: center;
   border-bottom: 2px solid #f5f5f5;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 30px;
 }
 
 .communication-limit-alert {
@@ -30,6 +30,13 @@
   border: solid 1px red;
 }
 
+.communications-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10vh;
+}
+
 .communications {
   background-color: #f5f5f5;
   padding: 5px;
@@ -40,9 +47,39 @@
 .message-content {
   height: 500px;
   width: 100%;
+  padding: 1vh 1vw;
   background-color: white;
-  display: flex;
   overflow: auto;
+}
+
+.message-area {
+  padding: 3px;
+  display: flex;
+  border-bottom: 1px solid #dedede;
+}
+
+.message-user {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border: 1px solid #2d90db;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.message-text {
+  height: auto;
+  width: 45vw;
+  padding-left: 3px;
+  margin-left: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  border-left: 1px solid #dedede;
+}
+
+.message-alert {
+  color: red;
 }
 
 .communicate-message-input {
