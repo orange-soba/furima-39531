@@ -14,4 +14,10 @@ class OrderAddress
     Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city, house_number: house_number, 
                   building: building, phone_number: phone_number, order_id: order.id)
   end
+
+  def create_room
+    item = Item.find(item_id)
+    limit = (item.order.created_at. + 14.day).end_of_day
+    Room.create(item_id: item_id, limit: limit)
+  end
 end

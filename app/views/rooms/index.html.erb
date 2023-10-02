@@ -1,0 +1,75 @@
+<%= render "shared/second-header"%>
+
+<div class="communication-contents">
+  <div class="communication-main">
+    <h1 class="communication-title">
+      コミュニケーションページ
+    </h1>
+
+    <%# 翌日ページ削除の注意 %>
+    <div class="communication-limit-alert">
+      <p>こちらのページは以下の時間に破棄されます</p>
+      <span class="communication-limit-datetime"><%= @room.limit.strftime("%Y-%m-%d %H:%M:%S") %></span><br>
+      <% if @room.limit.to_i == (@room.created_at + 3.week).end_of_day.to_i %>
+        これ以上の延期はできません
+      <% else %>
+        <div class="communication-limit-extension">
+          <p>期間を延長したいときは下のボタンを押してください(延長は1週間のみです)</p>
+          <%= form_with model: @room, url: item_room_path(item_id: @item.id, id: @room.id), local: true do |f| %>
+            <%= f.hidden_field :limit, value: @room.limit+ 1.week %>
+            <%= f.submit "更新" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%# /翌日ページ削除の注意 %>
+
+    <%# 購入内容の表示 %>
+    <div class='buy-item-info'>
+      <%= image_tag @item.image, class: 'buy-item-img' %>
+      <div class='buy-item-right-content'>
+        <h2 class='buy-item-text'>
+          <%= @item.name %>
+        </h2>
+        <div class='buy-item-price'>
+          <p class='item-price-text'>¥<%= @item.price %></p>
+          <p class='item-price-sub-text'><%= @item.fee.name %></p>
+        </div>
+        <div class="buy-item-shipping">
+          <p class="item-shipping-days"><%= @item.shipping_day.name %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class='item-payment'>
+      <h1 class='item-payment-title'>
+        支払金額
+      </h1>
+      <p class='item-payment-price'>
+        ¥<%= @item.price %>
+        <% if @item.fee.id == 1 %>
+          <span class="item-payment-fee">+ 送料</span>
+        <% end %>
+      </p>
+    </div>
+    <%# /購入内容の表示 %>
+
+    <%# コミュニケーション部分 %>
+    <div class="communications">
+      <div class="message-content">
+        <div class="communicate-buyer"></div>
+        <div class="communicate-text"></div>
+        <div class="communicate-seller"></div>
+      </div>
+    </div>
+    <%# /コミュニケーション部分 %>
+
+    <%# メッセージ送信部分 %>
+    <div class="communicate-message-input">
+
+    </div>
+    <%# /メッセージ送信部分 %>
+  </div>
+</div>
+
+<%= render "shared/second-footer"%>

@@ -60,6 +60,20 @@
   padding: 2vh 10vw;
 }
 
+.item-show-to-communication {
+  width: 600px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #3CCACE;
+  border-radius: 10px;
+}
+
+.item-show-to-communication__link {
+  margin-top: 10px;
+}
+
 .or-text {
   font-size: 20px;
 }
