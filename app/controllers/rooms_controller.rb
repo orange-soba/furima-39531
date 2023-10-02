@@ -1,14 +1,13 @@
 class RoomsController < ApplicationController
-  before_action :set_data, only: [:index, :edit]
+  before_action :authenticate_user!
+  before_action :set_data
+  before_action :move_to_index
+  before_action :check_limit
+
   def index
   end
 
-  def edit
-  end
-
   def update
-    @room = Room.find(params[:id])
-    @item = Item.find(room_params[:item_id])
     if @room.update(room_params)
       redirect_to item_rooms_path(@item.id)
     else
@@ -25,5 +24,18 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:limit).merge(item_id: params[:item_id])
+  end
+
+  def check_limit
+    if Time.now > @room.limit
+      @room.destroy
+      redirect_to root_path
+    end
+  end
+
+  def move_to_index
+    return if @room && (current_user.id == @item.user.id || current_user.id == @item.order.user.id)
+
+    redirect_to root_path
   end
 end

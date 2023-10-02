@@ -33,7 +33,7 @@
       <% end %>
     <% end %>
 
-    <% if user_signed_in? && @item.order %>
+    <% if user_signed_in? && @item.room %>
       <% if current_user.id == @item.user.id || current_user.id == @item.order.user.id %>
         <div class="item-show-to-communication">
           <p style="font-size: 20px;">購入後のやり取りはこちらへ</p>
