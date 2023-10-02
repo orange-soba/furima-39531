@@ -5,6 +5,8 @@ class RoomsController < ApplicationController
   before_action :move_to_index
 
   def index
+    @messages = Message.where(room_id: @room.id)
+    @message = Message.new
   end
 
   def update

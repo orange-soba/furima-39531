@@ -57,18 +57,28 @@
     <%# コミュニケーション部分 %>
     <div class="communications">
       <div class="message-content">
-        <div class="communicate-buyer"></div>
-        <div class="communicate-text"></div>
-        <div class="communicate-seller"></div>
+        <% @messages.each do |message| %>
+          <% if message.user.id == @item.user.id %>
+            <div class="communicate-buyer">S</div>
+          <% end %>
+          <div class="communicate-text">
+            <%= message.message %>
+          </div>
+          <% if message.user.id == @item.order.user.id %>
+            <div class="communicate-seller">B</div>
+          <% end %>
+        <% end %>
       </div>
+      <%# メッセージ送信部分 %>
+      <div class="communicate-message-input">
+        <%= form_with model: [@room, @message], url: item_room_messages_path(item_id: @item.id, room_id: @room.id), local:true do |f| %>
+          <%= f.text_field :message, placeholder: "message", class: "communication-message-text" %>
+          <%= f.submit "送信", class: "communication-message-submit" %>
+        <% end %>
+      </div>
+      <%# /メッセージ送信部分 %>
     </div>
     <%# /コミュニケーション部分 %>
-
-    <%# メッセージ送信部分 %>
-    <div class="communicate-message-input">
-
-    </div>
-    <%# /メッセージ送信部分 %>
   </div>
 </div>
 
