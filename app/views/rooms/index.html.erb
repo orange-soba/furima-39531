@@ -7,9 +7,19 @@
     </h1>
 
     <%# 翌日ページ削除の注意 %>
-    <div>
-      <%= @item.room.limit %>
-      <%= link_to "更新", [:edit, @item, @room] %>
+    <div class="communication-limit-alert">
+      <%= @room.limit %><br>
+      <% if @room.limit.to_i == (@room.created_at + 3.week).end_of_day.to_i %>
+        これ以上の延期はできません
+      <% else %>
+        <%#= link_to "更新", [:edit, @item, @room] %>
+        <div class="communication-limit-extension">
+          <%= form_with model: @room, url: item_room_path(item_id: @item.id, id: @room.id), local: true do |f| %>
+            <%= f.hidden_field :limit, value: @room.limit+ 1.week %>
+            <%= f.submit "更新" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <%# /翌日ページ削除の注意 %>
 
