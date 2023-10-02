@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       redirect_to item_rooms_path(@item.id)
     else
-      render :edit, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 

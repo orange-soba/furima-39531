@@ -9,7 +9,7 @@
     <%# 翌日ページ削除の注意 %>
     <div class="communication-limit-alert">
       <p>こちらのページは以下の時間に破棄されます</p>
-      <%= @room.limit.strftime("%Y-%m-%d %H:%M:%S") %><br>
+      <span class="communication-limit-datetime"><%= @room.limit.strftime("%Y-%m-%d %H:%M:%S") %></span><br>
       <% if @room.limit.to_i == (@room.created_at + 3.week).end_of_day.to_i %>
         これ以上の延期はできません
       <% else %>
