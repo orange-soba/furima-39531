@@ -96,6 +96,7 @@
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | room    | references | null: false, foreign_key: true |
+| user    | references | null: fa;se, foreign_key: true |
 | message | text       | null: false                    |
 
 ### Associations
