@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_data
   before_action :check_limit
+  before_action :authenticate_user!
   before_action :move_to_index
 
   def index
