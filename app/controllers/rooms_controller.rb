@@ -1,12 +1,9 @@
 class RoomsController < ApplicationController
+  before_action :set_data, only: [:index, :edit]
   def index
-    @item = Item.find(params[:item_id])
-    @room = @item.room
   end
 
   def edit
-    @item = Item.find(params[:item_id])
-    @room = @item.room
   end
 
   def update
@@ -20,6 +17,11 @@ class RoomsController < ApplicationController
   end
 
   private
+
+  def set_data
+    @item = Item.find(params[:item_id])
+    @room = @item.room
+  end
 
   def room_params
     params.require(:room).permit(:limit).merge(item_id: params[:item_id])
