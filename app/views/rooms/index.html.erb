@@ -57,7 +57,7 @@
     <%# コミュニケーション部分 %>
     <h2 class="communications-title">コミュニケーション</h2>
     <div class="communications">
-      <div class="message-content">
+      <div class="message-content", id="message-content">
         <% @messages.each do |message| %>
           <div class="message-area">
             <% if message.user_id == @item.user.id %>
