@@ -5,16 +5,12 @@ class RoomsController < ApplicationController
   before_action :move_to_index
 
   def index
-    @messages = Message.where(room_id: @room.id)
-    @message = Message.new
   end
 
   def update
     if @room.update(room_params)
       redirect_to item_rooms_path(@item.id)
     else
-      @messages = Message.where(room_id: @room.id)
-      @message = Message.new
       render :index, status: :unprocessable_entity
     end
   end
@@ -24,6 +20,8 @@ class RoomsController < ApplicationController
   def set_data
     @item = Item.find(params[:item_id])
     @room = @item.room
+    @messages = Message.where(room_id: @room.id)
+    @message = Message.new
   end
 
   def room_params
