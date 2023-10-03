@@ -25,33 +25,7 @@
     <%# /翌日ページ削除の注意 %>
 
     <%# 購入内容の表示 %>
-    <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
-      <div class='buy-item-right-content'>
-        <h2 class='buy-item-text'>
-          <%= @item.name %>
-        </h2>
-        <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= @item.fee.name %></p>
-        </div>
-        <div class="buy-item-shipping">
-          <p class="item-shipping-days"><%= @item.shipping_day.name %></p>
-        </div>
-      </div>
-    </div>
-
-    <div class='item-payment'>
-      <h1 class='item-payment-title'>
-        支払金額
-      </h1>
-      <p class='item-payment-price'>
-        ¥<%= @item.price %>
-        <% if @item.fee.id == 1 %>
-          <span class="item-payment-fee">+ 送料</span>
-        <% end %>
-      </p>
-    </div>
+    <%= render partial: "orders/item_info", locals: { item: @item } %>
     <%# /購入内容の表示 %>
 
     <%# コミュニケーション部分 %>
