@@ -113,6 +113,10 @@
   font-size: 14px;
 }
 
+.detail-value a {
+  text-decoration: underline;
+}
+
 .option {
   display: flex;
   justify-content: space-between;
