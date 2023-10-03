@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :item
+  has_many :messages
 
   validates :limit, presence: true
   validate :restrict_limit
