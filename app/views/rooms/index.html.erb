@@ -30,6 +30,10 @@
 
     <%# コミュニケーション部分 %>
     <h2 class="communications-title">コミュニケーション</h2>
+    <div class="communicators">
+      <p>S:出品者 <%= link_to @item.user.nickname, user_path(@item.user.id) %>さん</p>
+      <p>B:購入者 <%= link_to @item.order.user.nickname, user_path(@item.order.user.id) %>さん</p>
+    </div>
     <div class="communications">
       <div class="message-content", id="message-content">
         <% @messages.each do |message| %>
