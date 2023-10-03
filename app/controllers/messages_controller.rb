@@ -12,6 +12,12 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy
+    redirect_to item_rooms_path(@item.id)
+  end
+
   private
 
   def set_data

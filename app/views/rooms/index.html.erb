@@ -70,6 +70,11 @@
             <div class="message-text">
               <%= message.message %>
             </div>
+            <% if current_user.id == message.user_id %>
+              <div class="message-destroy-link">
+                <%= link_to "削除", item_room_message_path(item_id: @item.id, room_id: @room.id, id: message.id), data: { turbo_method: :delete } %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>

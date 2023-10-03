@@ -70,12 +70,20 @@
 
 .message-text {
   height: auto;
-  width: 45vw;
+  width: 40vw;
   padding-left: 3px;
   margin-left: 10px;
   font-size: 20px;
   line-height: 30px;
   border-left: 1px solid #dedede;
+}
+
+.message-destroy-link {
+  height: 25px;
+  border: 1px solid skyblue;
+  border-radius: 5px;
+  line-height: 25px;
+  margin: auto 0 0 0;
 }
 
 .message-alert {
