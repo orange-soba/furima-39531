@@ -5,8 +5,6 @@ class RoomsController < ApplicationController
   before_action :move_to_index
 
   def index
-    @messages = Message.where(room_id: @room.id)
-    @message = Message.new
   end
 
   def update
@@ -22,6 +20,8 @@ class RoomsController < ApplicationController
   def set_data
     @item = Item.find(params[:item_id])
     @room = @item.room
+    @messages = Message.where(room_id: @room.id)
+    @message = Message.new
   end
 
   def room_params
