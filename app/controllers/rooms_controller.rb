@@ -13,6 +13,8 @@ class RoomsController < ApplicationController
     if @room.update(room_params)
       redirect_to item_rooms_path(@item.id)
     else
+      @messages = Message.where(room_id: @room.id)
+      @message = Message.new
       render :index, status: :unprocessable_entity
     end
   end
