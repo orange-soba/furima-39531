@@ -38,7 +38,7 @@
       <div class="message-content", id="message-content">
         <% @messages.each do |message| %>
           <div class="message-area">
-            <% if message.user_id == @item.user.id %>
+            <% if message.user.id == @item.user.id %>
               <%# 出品者は「S」 %>
               <div class="message-user">S</div>
             <% else %>
@@ -48,7 +48,7 @@
             <div class="message-text">
               <%= message.message %>
             </div>
-            <% if current_user.id == message.user_id %>
+            <% if current_user.id == message.user.id %>
               <div class="message-destroy-link">
                 <%= link_to "削除", item_room_message_path(item_id: @item.id, room_id: @room.id, id: message.id), data: { turbo_method: :delete } %>
               </div>
