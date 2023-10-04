@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-
   <body>
+    <p><%= @user.nickname %>様、こちらは自動送信されたメールになります。お問い合わせは受け付けておりません。</p>
+    <p>===============================================</p>
+
     <%= yield %>
+
+    <p>===============================================</p>
+    <p>Furima-39531: http://13.113.45.27/ %></p>
   </body>
 </html>

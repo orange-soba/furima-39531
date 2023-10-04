@@ -172,6 +172,15 @@ GEM
     json (2.6.3)
     kgio (2.11.4)
     language_server-protocol (3.17.0.3)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
+    letter_opener_web (2.0.0)
+      actionmailer (>= 5.2)
+      letter_opener (~> 1.7)
+      railties (>= 5.2)
+      rexml
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -390,6 +399,7 @@ DEPENDENCIES
   gon
   importmap-rails
   jbuilder
+  letter_opener_web
   mysql2 (~> 0.5)
   payjp
   pry-rails
