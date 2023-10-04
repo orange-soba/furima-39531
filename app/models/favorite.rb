@@ -2,5 +2,5 @@ class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :item
 
-  validates :item_id, uniqueness: { scope: :usr_id }
+  validates :item, uniqueness: { scope: :user }
 end
