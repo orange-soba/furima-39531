@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.valid?
       @message.save
+      UserMailer.with(user: @message.user).test_mail.deliver_later
       redirect_to item_rooms_path(@item.id)
     else
       @messages = Message.where(room_id: @room.id)
