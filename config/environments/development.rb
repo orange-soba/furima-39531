@@ -40,13 +40,15 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = true
-  
+
+  # ここはコメントアウトしない(WEB上での確認、Gmailの共通で必要な設定)
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
+
   # メールの送信結果をWEB上で確認するための設定
   # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
 
   # Gmailでメールを送信するための設定
-  config.action_mailer.default_url_options = {  host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
