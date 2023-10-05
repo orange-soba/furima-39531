@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "furima_39531_production"
 
   # Gmailでメールを送信するための設定
-  config.action_mailer.default_url_options = { host: 'http://13.113.45.27/' }
+  config.action_mailer.default_url_options = { host: '13.113.45.27' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
@@ -71,9 +71,9 @@ Rails.application.configure do
     domain: 'gmail.com',
     user_name: ENV['GOOGLE_EMAIL'],
     password: ENV['GOOGLE_APP_PASSWORD'],
-    authentication: :login
+    authentication: 'plain'
   }
-  
+
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = true
 
