@@ -7,4 +7,16 @@ class UserMailerPreview < ActionMailer::Preview
     message = Faker::Lorem.sentence
     UserMailer.with(user: user, item: item, message: message).communicate_mail
   end
+
+  def order_mail_buyer
+    item = Item.find(10)
+    user = item.order.user
+    UserMailer.with(user: user, item: item).order_mail_buyer
+  end
+
+  def order_mail_seller
+    item = Item.find(10)
+    user = item.order.user
+    UserMailer.with(user: user, item: item).order_mail_seller
+  end
 end

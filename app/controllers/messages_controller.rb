@@ -36,6 +36,6 @@ class MessagesController < ApplicationController
     else
       user = @item.user
     end
-    UserMailer.with(user: user, item: @item, message: @message).communicate_mail.deliver_later
+    UserMailer.with(user: user, item: @item, message: @message.message).communicate_mail.deliver_later
   end
 end
