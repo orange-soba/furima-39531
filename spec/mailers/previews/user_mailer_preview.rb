@@ -1,6 +1,5 @@
-# Preview all emails at http://localhost:3000/rails/mailers/
+# Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
-  # http://localhost:3000/rails/mailers/test_mailer/test_mailにアクセス
   def communicate_mail
     item = Item.find(10)
     user = item.user
@@ -18,5 +17,10 @@ class UserMailerPreview < ActionMailer::Preview
     item = Item.find(10)
     user = item.order.user
     UserMailer.with(user: user, item: item).order_mail_seller
+  end
+
+  def welcome_mail
+    user = User.first
+    UserMailer.with(user: user).welcome_mail
   end
 end

@@ -33,4 +33,12 @@ class UserMailer < ApplicationMailer
       subject: '出品した商品が購入されました'
     )
   end
+
+  def welcome_mail
+    @user = params[:user]
+    mail(
+      to: email_address_with_name(@user.email, @user.nickname),
+      subject: 'Furima-39531へようこそ！'
+    )
+  end
 end
