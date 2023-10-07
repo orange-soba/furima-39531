@@ -21,6 +21,6 @@ class UserMailerPreview < ActionMailer::Preview
 
   def welcome_mail
     user = User.first
-    UserMailer.with(user: user).welcome_mail
+    UserMailer.with(nickname: user.nickname, email: user.email).welcome_mail
   end
 end

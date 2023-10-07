@@ -35,9 +35,10 @@ class UserMailer < ApplicationMailer
   end
 
   def welcome_mail
-    @user = params[:user]
+    @nickname = params[:nickname]
+    email = params[:email]
     mail(
-      to: email_address_with_name(@user.email, @user.nickname),
+      to: email_address_with_name(email, @nickname),
       subject: 'Furima-39531へようこそ！'
     )
   end
