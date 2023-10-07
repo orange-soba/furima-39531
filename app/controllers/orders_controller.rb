@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
       pay_order
       @order_address.save
       @order_address.create_room
+      send_mail
       redirect_to root_path
     else
       render :index, status: :unprocessable_entity
@@ -25,7 +26,6 @@ class OrdersController < ApplicationController
   def item_exists_check
     return if Item.exists?(params[:item_id])
 
-    flash[:alert] = "IDが#{params[:id]}の商品は存在しません"
     redirect_to root_path
   end
 
@@ -55,5 +55,13 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy',
     )
+  end
+
+  def send_mail
+    item = Item.find(params[:item_id])
+    buyer = item.order.user
+    seller = item.user
+    UserMailer.with(user: buyer, item: item).order_mail_buyer.deliver_later
+    UserMailer.with(user: seller, item: item).order_mail_seller.deliver_later
   end
 end

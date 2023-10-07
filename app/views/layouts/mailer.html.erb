@@ -4,12 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p><%= @user.nickname %>様、こちらは自動送信されたメールになります。お問い合わせは受け付けておりません。</p>
+    <p>こちらは自動送信されたメールになります。お問い合わせは受け付けておりません。</p>
     <p>===============================================</p>
 
     <%= yield %>
 
     <p>===============================================</p>
-    <p>Furima-39531: <%= url_for(host: 'http://13.113.45.27', controller: 'items', action: 'index') %> %></p>
+    <p>Furima-39531: <%= url_for(host: 'http://13.113.45.27', controller: 'items', action: 'index') %></p>
   </body>
 </html>

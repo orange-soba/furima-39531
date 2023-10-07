@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.valid?
       @message.save
-      UserMailer.with(user: @message.user).test_mail.deliver_later
+      send_mail
       redirect_to item_rooms_path(@item.id)
     else
       @messages = Message.where(room_id: @room.id)
@@ -28,5 +28,14 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:message).merge(room_id: @room.id, user_id: current_user.id)
+  end
+
+  def send_mail
+    if @message.user == @item.user
+      user = @item.order.user
+    else
+      user = @item.user
+    end
+    UserMailer.with(user: user, item: @item, message: @message.message).communicate_mail.deliver_later
   end
 end
