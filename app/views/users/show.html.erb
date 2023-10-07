@@ -86,6 +86,28 @@
           </tr>
         </tbody>
       </table>
+
+      <%# お気に入り登録商品 %>
+      <div class="user-show__title">お気に入り登録商品</div>
+      <% if @favorite_items != [] %>
+        <table class="detail-table">
+          <tbody>
+            <tr>
+              <th class="detail-user">商品名</th>
+              <th class="detail-value", style='background-color: #eee;'>商品の詳細ページへのリンク</td> 
+            </tr>
+            <% @favorite_items.each do |item| %>
+              <tr>
+                <td class="detail-user", style='background-color: white;'><%= item.name %></th>
+                <td class="detail-value"><%= link_to nil , item_url(item) %></td> 
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <h3 style="font-size: 25px;">お気に入りに登録した商品が存在しません</h3>
+      <% end %>
+
     <% end %>
 
     <%# 出品履歴のグラフを表示 %>
@@ -122,8 +144,6 @@
   <ul class="item-lists">
     <% if @items.exists? %>
       <% @items.each_with_index do |item, index| %>
-        <%# 出品履歴が表示されるのは4つまで %>
-        <% break if index == 5 %>
         <li class='list'>
           <%= link_to item_path(item.id) do %>
             <div class='item-img-content'>
