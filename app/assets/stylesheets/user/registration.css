@@ -158,3 +158,12 @@
   text-align: right;
   cursor: pointer;
 }
+
+.notice_mail {
+  color: red;
+}
+
+.mail_image {
+  width: 200px;
+  margin: 0 auto;
+}
