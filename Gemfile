@@ -97,3 +97,4 @@ gem 'gon'
 gem 'aws-sdk-s3', require: false
 gem 'ransack'
 gem 'chartkick'
+gem 'gretel'
