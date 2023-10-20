@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
   def create
     favorite = current_user.favorites.create(item_id: params[:item_id])
     respond_to do |format|
+      format.html { redirect_to @item, notice: 'お気に入りに追加しました' }
       format.json { render json: @item, status: :created, location: @item }
     end
   end
@@ -11,6 +12,7 @@ class FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(item_id: params[:item_id], user_id: current_user.id)&.destroy
     respond_to do |format|
+      format.html { redirect_to @item, notice: 'お気に入り登録を解除しました' }
       format.json { render json: @item, status: :destroyed, location: @item }
     end
   end
