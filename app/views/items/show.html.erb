@@ -92,10 +92,30 @@
 
   <div class="comment-box">
     <div class="comment-area">
-      <% if @item.comments %>
-        コメントはまだありません
+      <% if @comments.exists? %>
+        <div>
+          <% @comments.each do |comment| %>
+            <% if @item.user.id == comment.user.id %>
+              <div class="comment-show__seller comment-show">
+                <div class="comment-text-area"><%= comment.comment %></div>
+                <div class="comment-data">
+                  <div class="comment-date"><%= comment.created_at %></div>
+                  <div class="comment-user">出品者</div>
+                </div>
+              </div>
+            <% else %>
+              <div class="comment-show">
+                <div class="comment-text-area"><%= comment.comment %></div>
+                <div class="comment-data">
+                  <div class="comment-date"><%= comment.created_at %></div>
+                  <div class="comment-user"><%= comment.user.nickname %></div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% else %>
-        コメントがあります
+        コメントはまだありません
       <% end %>
     </div>
     <%= form_with model: [@item, @comment], url: item_comments_path(@item), local: true do |f| %>
