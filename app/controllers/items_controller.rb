@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.where(item_id: params[:id])
   end
 
   def edit
