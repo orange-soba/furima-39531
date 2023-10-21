@@ -189,6 +189,15 @@
   text-align: left;
 }
 
+.comment-destroy {
+  width: 45px;
+  display: inline;
+}
+
+.comment-destroy a {
+  text-decoration: underline;
+}
+
 .comment-data {
   display: flex;
   justify-content: space-between;
