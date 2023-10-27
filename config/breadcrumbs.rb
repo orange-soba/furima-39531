@@ -13,6 +13,11 @@ crumb :search do
   parent :root
 end
 
+crumb :item_new do
+  link "商品出品", new_item_path
+  parent :root
+end
+
 crumb :item_show do
   id = params[:item_id] ||= params[:id]
   link "商品詳細", item_path(id)
