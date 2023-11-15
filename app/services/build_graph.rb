@@ -7,7 +7,8 @@ class BuildGraph
     graph = {}
     graph[:category] = category_graph(@items)
     graph[:frequency] = frequency_graph(@items)
-    return graph
+    
+    graph
   end
 
   def category_graph(items)
@@ -21,7 +22,8 @@ class BuildGraph
         graph[item.category.name] = 1
       end
     end
-    return graph
+    
+    graph
   end
 
   def frequency_graph(items)
@@ -43,6 +45,7 @@ class BuildGraph
         next
       end
     end
-    return graph
+    
+    graph
   end
 end

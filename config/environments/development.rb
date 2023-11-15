@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # ここはコメントアウトしない(WEB上での確認、Gmailの共通で必要な設定)
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = {  host: 'localhost:3000'}
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # メールの送信結果をWEB上で確認するための設定
   # config.action_mailer.delivery_method = :letter_opener
