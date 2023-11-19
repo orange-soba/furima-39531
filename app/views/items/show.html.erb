@@ -100,7 +100,7 @@
                 <div class="comment-text-area">
                   <%= comment.comment %>
                   <div class="comment-destroy">
-                    <% if comment.user.id == current_user.id %>
+                    <% if user_signed_in? && comment.user.id == current_user.id %>
                       <%= link_to "削除", item_comment_path(item_id: @item.id, id: comment.id), data: { turbo_method: :delete } %>
                     <% end %>
                   </div>
@@ -115,7 +115,7 @@
                 <div class="comment-text-area">
                   <%= comment.comment %>
                   <div class="comment-destroy">
-                    <% if comment.user.id == current_user.id %>
+                    <% if user_signed_in? && comment.user.id == current_user.id %>
                       <%= link_to "削除", item_comment_path(item_id: @item.id, id: comment.id), data: { turbo_method: :delete } %>
                     <% end %>
                   </div>
